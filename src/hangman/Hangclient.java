@@ -39,9 +39,7 @@ public class Hangclient {
             
             if(validate(bruger,password))
                 break;
-          
-          
-                
+         
         }      
         
         
