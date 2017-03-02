@@ -30,7 +30,7 @@ public class hangImpl implements HangI {
   
   public hangImpl(){
       
-       muligeOrd.add("bil");
+    muligeOrd.add("bil");
     muligeOrd.add("computer");
     muligeOrd.add("programmering");
     muligeOrd.add("motorvej");
@@ -46,6 +46,18 @@ public class hangImpl implements HangI {
     public ArrayList<String> getBrugteBogstaver() {
                return brugteBogstaver;
     }
+    
+      @Override
+    public void hentOrdFraDRREST() {
+       
+        OrdDr_REST rest = new OrdDr_REST();
+        
+          for (int i = 0; 0 < rest.hentOrd().size(); i++) {
+              muligeOrd.add(rest.hentOrd().get(i));
+          }
+          System.out.println("Ord hentet fra dr: " + muligeOrd);
+    }
+    
 
     @Override
     public String Getordet() {
@@ -131,10 +143,6 @@ public class hangImpl implements HangI {
     }
    opdaterSynligtord();
     }
-    
-   
-    
 
-    
-    
+  
 }
