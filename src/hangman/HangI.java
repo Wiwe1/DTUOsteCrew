@@ -25,6 +25,7 @@ public interface HangI {
     @WebMethod  public void nullstill();
      @WebMethod public void opdaterSynligtord();
      @WebMethod public void gætBogstav(String bogstav);
+     @WebMethod public void hentOrdFraDRREST();
      
      
     
