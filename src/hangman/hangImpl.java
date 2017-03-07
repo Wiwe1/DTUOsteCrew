@@ -26,10 +26,12 @@ public class hangImpl implements HangI {
   private int antalForkerteBogstaver;
   private boolean sidsteBogstavVarKorrekt;
   private boolean spilletErVundet;
-  private boolean spilletErTabt;    
+  private boolean spilletErTabt;
+  private boolean spilIgen;
+  private int highscore;
   
   public hangImpl(){
-      
+      System.out.println("tabt: "+spilletErTabt+ "vundet: "+ spilletErVundet);
       hentOrdFraDRREST();
   /*    
     muligeOrd.add("bil");
@@ -59,8 +61,11 @@ public class hangImpl implements HangI {
               muligeOrd.add(rest.hentOrd().get(i));
              
           }
+          System.out.println("alleOrd" + rest.alleOrd);
           System.out.println("Ord hentet fra dr: " + muligeOrd);
+          nullstill();
     }
+    
     
 
     @Override
@@ -146,6 +151,16 @@ public class hangImpl implements HangI {
       }
     }
    opdaterSynligtord();
+    }
+
+    @Override
+    public boolean vilSpiligen(String svar) {
+      if(svar.equals("y")){
+       nullstill();
+          return true;
+      }
+      else
+         return false;
     }
 
   

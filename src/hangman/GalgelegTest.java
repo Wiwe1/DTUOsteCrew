@@ -1,77 +1,41 @@
 package hangman;
 
+import java.util.Scanner;
+
 public class GalgelegTest {
 
   public static void main(String[] args) {
 
-    HangI spil = new hangImpl();
-    
-/*
-    try {
-      spil.hentOrdFraDr();
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-*/
+    HangI hang = new hangImpl();
+    Scanner scanner = new Scanner(System.in);
  
-
-    spil.gætBogstav("e");
-  
-
-    spil.gætBogstav("a");
    
-    System.out.println("" + spil.getAntalForkertBogstaver());
+   
+    System.out.println("" + hang.getAntalForkertBogstaver());
     
-    System.out.println("" + spil.getSynligtOrd());
-      System.out.println(spil.Getordet());
-    if (spil.erSpilletSlut()) return;
+    System.out.println("" + hang.getSynligtOrd());
+      System.out.println("Du skal gætte: " + hang.Getordet());
+      
+      do{
+        while (!hang.erSpilletSlut()) {
 
-    spil.gætBogstav("i");
-    
-    if (spil.erSpilletSlut()) return;
+            System.out.println("Du skal gætte følgende ord: " + hang.getSynligtOrd());
+            int antalforkertgæt = hang.getAntalForkertBogstaver();
+     
+            String bogstav = scanner.nextLine();
+            hang.gætBogstav(bogstav);
 
-    spil.gætBogstav("s");
- 
-    if (spil.erSpilletSlut()) return;
+            if (hang.erSpilletTabt() == true) {
+                System.out.println("Spillet er tabt: " + hang.Getordet());
+            }
+            
+            System.out.println("Brugte bogstaver" + hang.getBrugteBogstaver());
 
-    spil.gætBogstav("r");
+        }
+           System.out.println("Spil igen? (y/n)");
+            
+        }while(hang.vilSpiligen(scanner.next()));
+      
    
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("l");
-   
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("b");
-
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("o");
- 
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("t");
-
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("n");
-   
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("m");
-   
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("y");
-  
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("p");
-
-    if (spil.erSpilletSlut()) return;
-
-    spil.gætBogstav("g");
-   
-    if (spil.erSpilletSlut()) return;
   }
 }

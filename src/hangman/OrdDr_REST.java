@@ -3,6 +3,8 @@ package hangman;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.ws.rs.client.Client;
@@ -20,6 +22,7 @@ import org.json.JSONObject;
 public class OrdDr_REST {
     
     ArrayList<String> ord;
+        String alleOrd ="";
     
     public ArrayList<String> hentOrd(){
         
@@ -30,24 +33,24 @@ public class OrdDr_REST {
                 request(MediaType.APPLICATION_JSON).get();
         
         String svar = res.readEntity(String.class);
-        
+    
         try {
             JSONObject json = new JSONObject(svar);
             System.out.println("længde" +  json.getJSONArray("Items").length());
             for (int i = 0; i < json.getJSONArray("Items").length(); i++) {
-                 ord.add(json.getJSONArray("Items").getJSONObject(i).getString("SeriesTitle"));
+                 alleOrd +=  (json.getJSONArray("Items").getJSONObject(i).getString("SeriesTitle"));
+                 alleOrd += " ";
             }
            
-           // ord.add(json.getJSONArray("Items").getJSONObject(1).getString("SeriesTitle"));
-            //ord.add(json.getJSONArray("Items").getJSONObject(2).getString("SeriesTitle"));
-          //  System.out.println("SIZE" + ord.size());
-            
+            alleOrd = alleOrd.toLowerCase();
+            ord.clear();
+            ord.addAll(new HashSet<String>(Arrays.asList(alleOrd.split(" "))));
             
         } catch (JSONException ex) {
             
             ex.printStackTrace();
         }
-        
+    
         return ord;
     }
    
