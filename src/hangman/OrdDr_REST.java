@@ -33,14 +33,18 @@ public class OrdDr_REST {
         
         try {
             JSONObject json = new JSONObject(svar);
-            
-            ord.add(json.getJSONArray("Items").getJSONObject(0).getString("SeriesTitle"));
-            ord.add(json.getJSONArray("Items").getJSONObject(1).getString("SeriesTitle"));
-            ord.add(json.getJSONArray("Items").getJSONObject(2).getString("SeriesTitle"));
-            
+            System.out.println("længde" +  json.getJSONArray("Items").length());
+            for (int i = 0; i < json.getJSONArray("Items").length(); i++) {
+                 ord.add(json.getJSONArray("Items").getJSONObject(i).getString("SeriesTitle"));
+            }
+           
+           // ord.add(json.getJSONArray("Items").getJSONObject(1).getString("SeriesTitle"));
+            //ord.add(json.getJSONArray("Items").getJSONObject(2).getString("SeriesTitle"));
+          //  System.out.println("SIZE" + ord.size());
             
             
         } catch (JSONException ex) {
+            
             ex.printStackTrace();
         }
         

@@ -30,6 +30,8 @@ public class hangImpl implements HangI {
   
   public hangImpl(){
       
+      hentOrdFraDRREST();
+  /*    
     muligeOrd.add("bil");
     muligeOrd.add("computer");
     muligeOrd.add("programmering");
@@ -38,6 +40,7 @@ public class hangImpl implements HangI {
     muligeOrd.add("gangsti");
     muligeOrd.add("skovsnegl");
     muligeOrd.add("solsort");
+*/
     nullstill();
       
   }
@@ -52,8 +55,9 @@ public class hangImpl implements HangI {
        
         OrdDr_REST rest = new OrdDr_REST();
         
-          for (int i = 0; 0 < rest.hentOrd().size(); i++) {
+          for (int i = 0; i < rest.hentOrd().size(); i++) {
               muligeOrd.add(rest.hentOrd().get(i));
+             
           }
           System.out.println("Ord hentet fra dr: " + muligeOrd);
     }

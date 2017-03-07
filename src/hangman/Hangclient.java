@@ -37,12 +37,11 @@ public class Hangclient {
             String password = scanner.nextLine();
             
             
-            if(validate(bruger,password))
+           // if(validate(bruger,password))
                 break;
         }      
         
-        
-
+       
   while(hang.erSpilletSlut()==false){
        
       System.out.println("Du skal gætte følgende ord: "+hang.getSynligtOrd());
