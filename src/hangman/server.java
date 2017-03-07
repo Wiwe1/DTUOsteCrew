@@ -23,16 +23,14 @@ public class server {
    public static void main(String [] args)throws Exception{
        
        HangI hang = new hangImpl();
-       Brugerdatabase db = Brugerdatabase.getInstans();
-       BrugeradminImpl brgimpl = new BrugeradminImpl();
-       brgimpl.db=db;
+      
 
 		
     // Ipv6-addressen [::] svarer til Ipv4-adressen 0.0.0.0, der matcher alle maskinens netkort og 
 		Endpoint.publish("http://ubuntu4.javabog.dk:9902/galgelegtjeneste", hang);
-             //Endpoint.publish("http://ubuntu4.javabog.dk:9972/BrugerLogin",brgimpl );
+           
 		System.out.println("Galgelegtjeneste publiceret.");
-           	System.out.println("Bruger ting");
+          
        
        
    }

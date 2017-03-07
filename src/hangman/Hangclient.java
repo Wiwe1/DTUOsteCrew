@@ -19,7 +19,7 @@ import javax.xml.namespace.QName;
 public class Hangclient {
     
     public static void main(String [] arg)throws MalformedURLException{
-  URL url = new URL("http://ubuntu4.javabog.dk:9972/galgelegtjeneste?wsdl");
+  URL url = new URL("http://ubuntu4.javabog.dk:9902/galgelegtjeneste?wsdl");
         QName qname = new QName("http://hangman/", "hangImplService");
         
          Service service = Service.create(url, qname);
@@ -37,7 +37,7 @@ public class Hangclient {
             String password = scanner.nextLine();
             
             
-           // if(validate(bruger,password))
+             if(validate(bruger,password))
                 break;
         }      
         
@@ -80,7 +80,7 @@ public class Hangclient {
      
         public static boolean validate(String studienummer,String kodeord)throws MalformedURLException{
             
-         URL url = new URL("http://ubuntu4.javabog.dk:9972/brugeradmin?wsdl");
+         URL url = new URL("http://javabog.dk:9901/brugeradmin?wsdl");
         QName qname = new QName("http://soap.transport.brugerautorisation/", "BrugeradminImplService");
         Service service = Service.create(url, qname);
         Brugeradmin ba = service.getPort(Brugeradmin.class);
