@@ -57,7 +57,7 @@ public class Hangclient {
             System.out.println("Brugte bogstaver" + hang.getBrugteBogstaver());
 
         }
-            System.out.println("Spil igen? (y/n)");
+            System.out.println("Spil igen?(y/n)");
             
         }while(hang.vilSpiligen(scanner.next()));
 
