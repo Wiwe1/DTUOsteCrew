@@ -29,7 +29,7 @@ public class server {
     // Ipv6-addressen [::] svarer til Ipv4-adressen 0.0.0.0, der matcher alle maskinens netkort og 
 		Endpoint.publish("http://ubuntu4.javabog.dk:9902/galgelegtjeneste", hang);
            
-		System.out.println("Galgelegtjeneste publiceret.");
+		System.out.println("Galgelegtjeneste publiceret min ven.");
           
        
        
