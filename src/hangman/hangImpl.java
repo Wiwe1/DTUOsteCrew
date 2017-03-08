@@ -57,11 +57,10 @@ public class hangImpl implements HangI {
        
         OrdDr_REST rest = new OrdDr_REST();
         
-          for (int i = 0; i < rest.hentOrd().size(); i++) {
-              muligeOrd.add(rest.hentOrd().get(i));
-             
-          }
-          System.out.println("alleOrd" + rest.alleOrd);
+          
+         
+          muligeOrd = rest.hentOrd();
+          System.out.println("alleOrd " + rest.alleOrd);
           System.out.println("Ord hentet fra dr: " + muligeOrd);
           nullstill();
     }

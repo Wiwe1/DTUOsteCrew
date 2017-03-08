@@ -43,8 +43,7 @@ public class OrdDr_REST {
             }
            
             alleOrd = alleOrd.toLowerCase();
-            ord.clear();
-            ord.addAll(new HashSet<String>(Arrays.asList(alleOrd.split(" "))));
+               ord.addAll(new HashSet<String>(Arrays.asList(alleOrd.split(" "))));
             
         } catch (JSONException ex) {
             
