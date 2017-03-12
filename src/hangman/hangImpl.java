@@ -18,12 +18,12 @@ import javax.jws.WebService;
 @WebService(endpointInterface = "hangman.HangI")
 public class hangImpl implements HangI {
     
-    private ArrayList<int> ids = new ArrayList<int>();
+    private ArrayList<Integer> ids = new ArrayList<Integer>();
     private ArrayList<String> muligeOrd = new ArrayList<String>();
     private ArrayList<String> ordene = new ArrayList<String>();
-    private ArrayList<> brugteBogstaver = new ArrayList<String>();
+    private ArrayList<String> brugteBogstaver = new ArrayList<String>();
     private ArrayList<String> synligtOrd = new ArrayList<String>();
-    private ArrayList<int> antalForkerteBogstaver = new ArrayList<int>();
+    private ArrayList<Integer> antalForkerteBogstaver = new ArrayList<Integer>();
     private ArrayList<boolean> sidsteBogstavVarKorrekt = new ArrayList<boolean>();
     private ArrayList<boolean> spilletErVundet = new ArrayList<boolean>();
     private ArrayList<boolean> spilletErTabt = new ArrayList<boolean>();
