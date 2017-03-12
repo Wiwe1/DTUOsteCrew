@@ -26,7 +26,7 @@ public interface HangI {
     @WebMethod public void nullstill(int id);
     @WebMethod public void opdaterSynligtord(int id);
     @WebMethod public void gætBogstav(String bogstav,int id);
-    @WebMethod public void hentOrdFraDRREST();
+    @WebMethod public void hentOrdFraDRREST(int id);
     @WebMethod public boolean vilSpiligen(String svar,int id);
     
     

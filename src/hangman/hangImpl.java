@@ -17,9 +17,8 @@ import javax.jws.WebService;
  */
 @WebService(endpointInterface = "hangman.HangI")
 
-private final int range = 1000000000;
 public class hangImpl implements HangI {
-    
+    private final int range = 1000000000;
     private ArrayList<Integer> ids = new ArrayList<Integer>();
     private ArrayList<String> muligeOrd = new ArrayList<String>();
     private ArrayList<String> ordene = new ArrayList<String>();
@@ -35,7 +34,7 @@ public class hangImpl implements HangI {
     @Override
     public int newSession(){
         while (true){
-            id = (int)(Math.random() * range);
+            int id = (int)(Math.random() * range);
             if(ids.indexOf(id)==-1){
                 ids.add(id);
                 ordene.add("");
@@ -45,13 +44,13 @@ public class hangImpl implements HangI {
                 sidsteBogstavVarKorrekt.add(false);
                 spilletErVundet.add(true);
                 spilletErTabt.add(true);
-                spilIgen.(true);
+                spilIgen.add(true);
                 return id;
             }
         }
     }
     
-    public hangImpl(){
+    public hangImpl(int id){
         System.out.println("tabt: "+spilletErTabt+ "vundet: "+ spilletErVundet);
         hentOrdFraDRREST();
         /*
@@ -64,7 +63,7 @@ public class hangImpl implements HangI {
               muligeOrd.add("skovsnegl");
               muligeOrd.add("solsort");
         */
-        nullstill();
+        nullstill(id);
       
     }
 
@@ -74,7 +73,7 @@ public class hangImpl implements HangI {
     }
     
     @Override
-    public void hentOrdFraDRREST() {
+    public void hentOrdFraDRREST(int id) {
        
         OrdDr_REST rest = new OrdDr_REST();
         
@@ -125,7 +124,7 @@ public class hangImpl implements HangI {
 
     @Override
     public void nullstill(int id) {
-        ind = ids.indexOf(id);
+        int ind = ids.indexOf(id);
         brugteBogstaver.set(ind, "");
         antalForkerteBogstaver.set(ind, 0);
         spilletErVundet.set(ind,false);
@@ -137,10 +136,10 @@ public class hangImpl implements HangI {
 
     @Override
     public void opdaterSynligtord(int id) {
-        ind = ids.indexOf(id);
-        string ordCheck = "";
-        string brugte = brugteBogstaver.get(ind);
-        string ord = ordene.get(ind);
+        int ind = ids.indexOf(id);
+        String ordCheck = "";
+        String brugte = brugteBogstaver.get(ind);
+        String ord = ordene.get(ind);
         boolean vundet = true;
         for (int n = 0; n < ordene.length(); n++) {
             String bogstav = ord.substring(n, n + 1);
@@ -158,7 +157,7 @@ public class hangImpl implements HangI {
     @Override
     public void gætBogstav(String bogstav,int id) {
         if (bogstav.length() != 1) return;
-        ind = ids.indexOf(id);
+        int ind = ids.indexOf(id);
         System.out.println("Der gættes på bogstavet: " + bogstav);
         if (brugteBogstaver.get(ind).contains(bogstav)) return;
         if (spilletErVundet.get(ind) || spilletErTabt.get(ind)) return;
