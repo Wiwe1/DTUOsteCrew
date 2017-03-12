@@ -127,7 +127,7 @@ public class hangImpl implements HangI {
         String brugte = brugteBogstaver.get(ind);
         String ord = ordene.get(ind);
         boolean vundet = true;
-        for (int n = 0; n < ordene.length(); n++) {
+        for (int n = 0; n < ord.length(); n++) {
             String bogstav = ord.substring(n, n + 1);
             if (brugte.contains(bogstav)) {
                 ordCheck = ordCheck + bogstav;
@@ -141,7 +141,7 @@ public class hangImpl implements HangI {
     }
 
     @Override
-    public void gætBogstav(String bogstav,int id) {
+    public void gætBogstav(String bogstav, int id) {
         if (bogstav.length() != 1) return;
         int ind = ids.indexOf(id);
         System.out.println("Der gættes på bogstavet: " + bogstav);

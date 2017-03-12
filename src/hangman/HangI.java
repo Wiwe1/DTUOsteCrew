@@ -28,6 +28,4 @@ public interface HangI {
     @WebMethod public void gætBogstav(String bogstav,int id);
     @WebMethod public void hentOrdFraDRREST(int id);
     @WebMethod public boolean vilSpiligen(String svar,int id);
-    
-    
 }
