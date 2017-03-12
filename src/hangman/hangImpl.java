@@ -50,21 +50,7 @@ public class hangImpl implements HangI {
         }
     }
     
-    public hangImpl(int id){
-        System.out.println("tabt: "+spilletErTabt+ "vundet: "+ spilletErVundet);
-        hentOrdFraDRREST();
-        /*
-              muligeOrd.add("bil");
-              muligeOrd.add("computer");
-              muligeOrd.add("programmering");
-              muligeOrd.add("motorvej");
-              muligeOrd.add("busrute");
-              muligeOrd.add("gangsti");
-              muligeOrd.add("skovsnegl");
-              muligeOrd.add("solsort");
-        */
-        nullstill(id);
-      
+    public hangImpl(){
     }
 
     @Override
