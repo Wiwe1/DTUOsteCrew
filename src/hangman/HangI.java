@@ -14,20 +14,20 @@ import javax.jws.WebService;
  */
 @WebService
 public interface HangI {
-    @WebMethod public ArrayList<String> getBrugteBogstaver();
-    @WebMethod  public String Getordet();
-      @WebMethod public String getSynligtOrd();
-    @WebMethod  public int getAntalForkertBogstaver();
-     @WebMethod public boolean erSidsteBogstavKorrekt();
-     @WebMethod public boolean erSpilletVundet();
-      @WebMethod public boolean erSpilletTabt();
-    @WebMethod  public boolean erSpilletSlut();
-    @WebMethod  public void nullstill();
-     @WebMethod public void opdaterSynligtord();
-     @WebMethod public void gætBogstav(String bogstav);
-     @WebMethod public void hentOrdFraDRREST();
-     @WebMethod public boolean vilSpiligen(String svar);
-     
-     
+    @WebMethod public String getBrugteBogstaver(int id);
+    @WebMethod public int newSession();
+    @WebMethod public String Getordet(int id);
+    @WebMethod public String getSynligtOrd(int id);
+    @WebMethod public int getAntalForkertBogstaver(int id);
+    @WebMethod public boolean erSidsteBogstavKorrekt(int id);
+    @WebMethod public boolean erSpilletVundet(int id);
+    @WebMethod public boolean erSpilletTabt(int id);
+    @WebMethod public boolean erSpilletSlut(int id);
+    @WebMethod public void nullstill(int id);
+    @WebMethod public void opdaterSynligtord(int id);
+    @WebMethod public void gætBogstav(String bogstav,int id);
+    @WebMethod public void hentOrdFraDRREST();
+    @WebMethod public boolean vilSpiligen(String svar,int id);
+    
     
 }

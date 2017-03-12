@@ -16,6 +16,8 @@ import javax.jws.WebService;
  * @author TheGeek & TheBlackKoala
  */
 @WebService(endpointInterface = "hangman.HangI")
+
+private final int range = 1000000000;
 public class hangImpl implements HangI {
     
     private ArrayList<Integer> ids = new ArrayList<Integer>();
@@ -24,16 +26,35 @@ public class hangImpl implements HangI {
     private ArrayList<String> brugteBogstaver = new ArrayList<String>();
     private ArrayList<String> synligtOrd = new ArrayList<String>();
     private ArrayList<Integer> antalForkerteBogstaver = new ArrayList<Integer>();
-    private ArrayList<boolean> sidsteBogstavVarKorrekt = new ArrayList<boolean>();
-    private ArrayList<boolean> spilletErVundet = new ArrayList<boolean>();
-    private ArrayList<boolean> spilletErTabt = new ArrayList<boolean>();
-    private ArrayList<boolean> spilIgen = new ArrayList<boolean>();
+    private ArrayList<Boolean> sidsteBogstavVarKorrekt = new ArrayList<Boolean>();
+    private ArrayList<Boolean> spilletErVundet = new ArrayList<Boolean>();
+    private ArrayList<Boolean> spilletErTabt = new ArrayList<Boolean>();
+    private ArrayList<Boolean> spilIgen = new ArrayList<Boolean>();
     private int highscore;
 
+    @Override
+    public int newSession(){
+        while (true){
+            id = (int)(Math.random() * range);
+            if(ids.indexOf(id)==-1){
+                ids.add(id);
+                ordene.add("");
+                brugteBogstaver.add("");
+                synligtOrd.add("");
+                antalForkerteBogstaver.add(0);
+                sidsteBogstavVarKorrekt.add(false);
+                spilletErVundet.add(true);
+                spilletErTabt.add(true);
+                spilIgen.(true);
+                return id;
+            }
+        }
+    }
+    
     public hangImpl(){
         System.out.println("tabt: "+spilletErTabt+ "vundet: "+ spilletErVundet);
         hentOrdFraDRREST();
-        /*    
+        /*
               muligeOrd.add("bil");
               muligeOrd.add("computer");
               muligeOrd.add("programmering");
@@ -48,7 +69,7 @@ public class hangImpl implements HangI {
     }
 
     @Override
-    public ArrayList<String> getBrugteBogstaver(int id) {
+    public String getBrugteBogstaver(int id) {
         return brugteBogstaver.get(ids.indexOf(id));
     }
     
@@ -105,7 +126,7 @@ public class hangImpl implements HangI {
     @Override
     public void nullstill(int id) {
         ind = ids.indexOf(id);
-        brugteBogstaver.set(ind, new ArrayList<string>(););
+        brugteBogstaver.set(ind, "");
         antalForkerteBogstaver.set(ind, 0);
         spilletErVundet.set(ind,false);
         spilletErTabt.set(ind,false);
@@ -168,7 +189,6 @@ public class hangImpl implements HangI {
         else {
             int ind = ids.indexOf(id);
             ids.remove(ind);
-            muligeOrd.remove(ind);
             ordene.remove(ind);
             brugteBogstaver.remove(ind);
             synligtOrd.remove(ind);
