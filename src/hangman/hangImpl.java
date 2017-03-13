@@ -5,11 +5,15 @@
  */
 package hangman;
 
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
+
 
 /**
  *
@@ -46,7 +50,7 @@ public class hangImpl implements HangI {
                 spilletErVundet.add(false);
                 spilletErTabt.add(false);
                 spilIgen.add(true);
-                nullstill(id)
+                nullstill(id);
                 return id;
             }
         }
@@ -126,7 +130,7 @@ public class hangImpl implements HangI {
     }
 
     private String hardWord(){
-        List words = Files.readAllLines(Paths.get("ord.txt")).get(32);
+        List<String> words = Files.readAllLines(Paths.get("Ord.txt"));
         return words.get((int)(Math.random() * words.size()));
     }
 
