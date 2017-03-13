@@ -33,6 +33,7 @@ public class hangImpl implements HangI {
 
     @Override
     public int newSession(){
+        hentOrdFraDRREST();
         while (true){
             int id = (int)(Math.random() * range);
             if(ids.indexOf(id)==-1){
