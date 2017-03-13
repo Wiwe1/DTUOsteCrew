@@ -42,9 +42,10 @@ public class hangImpl implements HangI {
                 synligtOrd.add("");
                 antalForkerteBogstaver.add(0);
                 sidsteBogstavVarKorrekt.add(false);
-                spilletErVundet.add(true);
-                spilletErTabt.add(true);
+                spilletErVundet.add(false);
+                spilletErTabt.add(false);
                 spilIgen.add(true);
+                nullstill(id)
                 return id;
             }
         }
