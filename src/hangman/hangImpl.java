@@ -40,7 +40,6 @@ public class hangImpl implements HangI {
 
     @Override
     public int newSession(){
-        hentOrdFraDRREST();
         while (true){
             int id = (int)(Math.random() * range);
             if(ids.indexOf(id)==-1){
@@ -60,10 +59,6 @@ public class hangImpl implements HangI {
     }
     
     public hangImpl(){
-        hentOrdFraDRREST();
-        hentOrdFraDRREST();
-        hentOrdFraDRREST();
-        hentOrdFraDRREST();
         hentOrdFraDRREST();
     }
 
@@ -126,12 +121,11 @@ public class hangImpl implements HangI {
         antalForkerteBogstaver.set(ind, 0);
         spilletErVundet.set(ind,false);
         spilletErTabt.set(ind,false);
-        //ordene.set(ind, muligeOrd.get(new Random().nextInt(muligeOrd.size())));
-        ordene.set(ind, hardWord());
+        ordene.set(ind, muligeOrd.get(new Random().nextInt(muligeOrd.size())));
+        //ordene.set(ind, hardWord());
         opdaterSynligtord(id);
-        //  opdaterSynligtOrd();
     }
-
+/*
     private String hardWord(){
         List<String> words;
         try {
@@ -141,7 +135,7 @@ public class hangImpl implements HangI {
             return "Bacon";
         }
     }
-
+*/
     @Override
     public void opdaterSynligtord(int id) {
         int ind = ids.indexOf(id);
