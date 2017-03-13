@@ -52,27 +52,29 @@ public class hangImpl implements HangI {
     }
     
     public hangImpl(){
+        hentOrdFraDRREST();
+        hentOrdFraDRREST();
+        hentOrdFraDRREST();
+        hentOrdFraDRREST();
+        hentOrdFraDRREST();
     }
 
     @Override
     public String getBrugteBogstaver(int id) {
         return brugteBogstaver.get(ids.indexOf(id));
     }
-    
+
     @Override
-    public void hentOrdFraDRREST(int id) {
-       
+    public void hentOrdFraDRREST() {
+
         OrdDr_REST rest = new OrdDr_REST();
-        
-          
-         
+
+
+
         muligeOrd = rest.hentOrd();
         System.out.println("alleOrd " + rest.alleOrd);
         System.out.println("Ord hentet fra dr: " + muligeOrd);
-        nullstill(id);
     }
-    
-    
 
     @Override
     public String Getordet(int id) {
