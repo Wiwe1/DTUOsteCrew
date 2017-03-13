@@ -119,9 +119,15 @@ public class hangImpl implements HangI {
         antalForkerteBogstaver.set(ind, 0);
         spilletErVundet.set(ind,false);
         spilletErTabt.set(ind,false);
-        ordene.set(ind, muligeOrd.get(new Random().nextInt(muligeOrd.size())));
+        //ordene.set(ind, muligeOrd.get(new Random().nextInt(muligeOrd.size())));
+        ordene.set(ind, hardWord());
         opdaterSynligtord(id);
         //  opdaterSynligtOrd();
+    }
+
+    private String hardWord(){
+        List words = Files.readAllLines(Paths.get("ord.txt")).get(32);
+        return words.get((int)(Math.random() * words.size()));
     }
 
     @Override
