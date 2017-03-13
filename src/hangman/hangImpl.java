@@ -5,12 +5,15 @@
  */
 package hangman;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.jws.WebMethod;
 import javax.jws.WebService;
 
@@ -130,8 +133,13 @@ public class hangImpl implements HangI {
     }
 
     private String hardWord(){
-        List<String> words = Files.readAllLines(Paths.get("Ord.txt"));
-        return words.get((int)(Math.random() * words.size()));
+        List<String> words;
+        try {
+            words = Files.readAllLines(Paths.get("Ord.txt"));
+            return words.get((int)(Math.random() * words.size()));
+        } catch (IOException ex) {
+            return "Bacon";
+        }
     }
 
     @Override
