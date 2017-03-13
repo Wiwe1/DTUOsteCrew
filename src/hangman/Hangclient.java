@@ -21,11 +21,11 @@ public class Hangclient {
     public static void main(String[] arg) throws MalformedURLException {
         URL url = new URL("http://ubuntu4.javabog.dk:9902/galgelegtjeneste?wsdl");
         QName qname = new QName("http://hangman/", "hangImplService");
-
+        int session;
         Service service = Service.create(url, qname);
         HangI hang = service.getPort(HangI.class);
 //         BrugeradminImpl brgimpl = service.getPort(BrugeradminImpl.class);
-
+        session = hang.newSession();
         Scanner scanner = new Scanner(System.in);
         System.out.println("Du skal logge ind før, at du kan spille Galgeleg");
         while (true) {
@@ -39,27 +39,27 @@ public class Hangclient {
                 break;
             }
         }
-        System.out.println("Hej" + hang.erSpilletSlut());
+        System.out.println("Hej" + hang.erSpilletSlut(session));
         
         do{
-        while (!hang.erSpilletSlut()) {
+        while (!hang.erSpilletSlut(session)) {
 
-            System.out.println("Du skal gætte følgende ord: " + hang.getSynligtOrd());
-            int antalforkertgæt = hang.getAntalForkertBogstaver();
+            System.out.println("Du skal gætte følgende ord: " + hang.getSynligtOrd(session));
+            int antalforkertgæt = hang.getAntalForkertBogstaver(session);
      
             String bogstav = scanner.nextLine();
-            hang.gætBogstav(bogstav);
+            hang.gætBogstav(bogstav, session);
 
-            if (hang.erSpilletTabt() == true) {
-                System.out.println("Spillet er tabt: " + hang.Getordet());
+            if (hang.erSpilletTabt(session) == true) {
+                System.out.println("Spillet er tabt: " + hang.Getordet(session));
             }
             
-            System.out.println("Brugte bogstaver" + hang.getBrugteBogstaver());
+            System.out.println("Brugte bogstaver" + hang.getBrugteBogstaver(session));
 
         }
             System.out.println("Spil igen?(y/n)");
             
-        }while(hang.vilSpiligen(scanner.next()));
+        }while(hang.vilSpiligen(scanner.next(), session));
 
     }
 
